@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit{
 
   loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private auth: AuthService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private auth: AuthService, 
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
       this.loginForm = this.formBuilder.group({
@@ -29,8 +33,10 @@ export class LoginComponent implements OnInit{
       this.auth.login(this.loginForm.value)
       .subscribe({
         next:(response) => {
-          alert(response.message)
+          alert(response.message);
+          console.log(response.message);
           this.loginForm.reset();
+          this.auth.storeToken(response.token);
           this.router.navigate(['products']);
         },
         error:(err) => {

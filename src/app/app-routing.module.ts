@@ -5,16 +5,16 @@ import { AddProductComponent } from './components/products/add-product/add-produ
 import { EditProductComponent } from './components/products/edit-product/edit-product.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup/signup.component';
-import { AppComponent } from './app.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    component: ProductsListComponent
+    path: '', redirectTo: 'login', pathMatch: 'full'
   },
   {
     path: 'products',
-    component: ProductsListComponent
+    component: ProductsListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'products/add',
