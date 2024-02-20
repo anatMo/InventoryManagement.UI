@@ -1,0 +1,4 @@
+.disabled-link {
+    color: rgba(0, 0, 0, 0.5) !important;
+    pointer-events: none; /* Disable pointer events */
+  } 
