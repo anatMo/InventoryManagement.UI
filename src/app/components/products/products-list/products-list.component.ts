@@ -1,19 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../models/product.model';
+import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css'
 })
-export class ProductsListComponent {
+export class ProductsListComponent implements OnInit{
 
   products: Product[] = [];
-  productNameFilter: string = '';
-  categoryFilter: string = '';
-  productNameFilterEnabled: boolean = false;
-  categoryFilterEnabled: boolean = false;
-  selectedFilter: string = '';
+  // productNameFilter: string = '';
+  // categoryFilter: string = '';
+  // productNameFilterEnabled: boolean = false;
+  // categoryFilterEnabled: boolean = false;
+  // selectedFilter: string = '';
+
+  constructor(private productsService: ProductsService) { }
+
+  ngOnInit() : void {
+    this.productsService.getAllProducts()
+    .subscribe({
+      next: (products) => {
+        this.products = products;
+      },
+      error:  (response) => {
+        console.log(response);
+      }
+    })
+
+  }
 
   // products: Product[] = [
   //   {

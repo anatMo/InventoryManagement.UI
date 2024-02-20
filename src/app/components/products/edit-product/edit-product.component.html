@@ -1,0 +1,41 @@
+<div class="container my-5">
+    <h1 class="mb-3">Edit Employee</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="updateProduct()">
+                <div class="mb-3">
+                    <label for="productId" class="form-label">Id</label>
+                    <input type="text" class="form-control" id="productId" readonly 
+                    name="productName" [(ngModel)]="productDetails.productId">
+                  </div>
+                <div class="mb-3">
+                  <label for="productName" class="form-label">Product Name</label>
+                  <input type="text" class="form-control" id="productName" 
+                  name="productName" [(ngModel)]="productDetails.productName">
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <input type="text" class="form-control" id="category"
+                    name="category" [(ngModel)]="productDetails.category">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="price"
+                    name="price" [(ngModel)]="productDetails.price">
+                </div>
+                <div class="mb-3">
+                    <label for="unitsInStock" class="form-label">Units In Stock</label>
+                    <input type="number" class="form-control" id="unitsInStock"
+                    name="unitsInStock" [(ngModel)]="productDetails.unitsInStock">
+                </div>
+                <button type="submit" class="btn btn-primary mr-50">Save</button>
+                <!-- <button type="button" class="btn btn-danger" 
+                (click)="deleteEmployee(employeeDetails.id)">Delete</button> -->
+            </form>
+        </div>
+    </div>
+
+    
+
+</div>

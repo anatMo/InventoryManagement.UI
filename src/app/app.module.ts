@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProductsListComponent } from './components/products/products-list/products-list.component';
+import { AddProductComponent } from './components/products/add-product/add-product.component';
+import { EditProductComponent } from './components/products/edit-product/edit-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
