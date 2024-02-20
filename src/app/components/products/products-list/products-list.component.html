@@ -1,60 +1,30 @@
 <div class="container my-5">
     <h1 class="mb-3">Products</h1>
 
-    <table class="table" *ngIf="products">
-        <thead>
-            <tr>
-                <th>ProductId</th>
-                <th>ProductName</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>UnitsInStock</th>
-                <th> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td>{{ product.productId}}</td>
-                <td>{{ product.productName}}</td>
-                <td>{{ product.category}}</td>
-                <td>{{ product.price}}</td>
-                <td>{{ product.unitsInStock}}</td> 
-                <td><a [routerLink]="['/products','edit',product.productId]">Edit</a></td>
-
-
-            </tr>
-
-        </tbody>
-
-
-
-
-
-    </table>
-    <p *ngIf="!products || products.length <= 0">No Products Found</p>
-</div>
-
-
-
-<!-- <div class="container my-5">
-    <h1 class="mb-3">Products</h1>
-
-    <div class="form-group mb-3">
-        <label for="filterSelect">Filter by:</label>
-        <select class="form-control" id="filterSelect" [(ngModel)]="selectedFilter" (change)="onFilterChange()">
-            <option value="productName">ProductName</option>
-            <option value="catagory">Catagory</option>
-        </select>
+    <div class="col-2">
+        <div class="form-group mb-3">
+            <label for="filterSelect">Filter by:</label>
+            <select class="form-control" id="filterSelect" [(ngModel)]="selectedFilter" (change)="onFilterChange()">
+                <option value="productName">ProductName</option>
+                <option value="category">Category</option>
+            </select>
+        </div>
     </div>
 
-    <div class="mb-3" *ngIf="selectedFilter === 'productName'">
-        <label for="productNameSearch">Search by Product Name:</label>
-        <input type="text" class="form-control" id="productNameSearch" [(ngModel)]="productNameFilter">
+    <div class="col-2">
+        <div class="mb-3" *ngIf="selectedFilter === 'productName'">
+            <label for="productNameSearch">Search by Product Name:</label>
+            <input type="text" class="form-control" id="productNameSearch" [(ngModel)]="productNameFilter">
+        </div>
     </div>
-    <div class="mb-3" *ngIf="selectedFilter === 'catagory'">
-        <label for="categorySearch">Search by Category:</label>
-        <input type="text" class="form-control" id="categorySearch" [(ngModel)]="categoryFilter">
+    
+    <div class="col-2">
+        <div class="mb-3" *ngIf="selectedFilter === 'category'">
+            <label for="categorySearch">Search by Category:</label>
+            <input type="text" class="form-control" id="categorySearch" [(ngModel)]="categoryFilter">
+        </div>
     </div>
+    
 
     <table class="table" *ngIf="!productNameFilterEnabled && !categoryFilterEnabled">
         <thead>
@@ -82,27 +52,25 @@
     <table class="table" *ngIf="(productNameFilterEnabled || categoryFilterEnabled) && filteredProducts && filteredProducts.length > 0">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Salary</th>
-                <th>Department</th>
+                <th>ProductId</th>
+                <th>ProductName</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>UnitsInStock</th>
                 <th> </th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let employee of filteredProducts">
-                <td>{{ employee.id}}</td>
-                <td>{{ employee.name}}</td>
-                <td>{{ employee.email}}</td>
-                <td>{{ employee.phone}}</td>
-                <td>{{ employee.salary}}</td>                
-                <td>{{ employee.department}}</td>                
-                <td><a [routerLink]="['/employees','edit',employee.id]">View</a></td>                
+            <tr *ngFor="let product of filteredProducts">
+                <td>{{ product.productId}}</td>
+                <td>{{ product.productName}}</td>
+                <td>{{ product.category}}</td>
+                <td>{{ product.price}}</td>
+                <td>{{ product.unitsInStock}}</td>                
+                <td><a [routerLink]="['/products','edit',product.productId]">View</a></td>              
             </tr>
         </tbody>
     </table>
 
     <p *ngIf="(productNameFilterEnabled || categoryFilterEnabled) && (!filteredProducts || filteredProducts.length <= 0)">No Products Found</p>
-</div> -->
+</div>
