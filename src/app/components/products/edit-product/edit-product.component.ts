@@ -45,4 +45,13 @@ export class EditProductComponent implements OnInit{
       }
     });
   }
+
+  deleteProduct(productId: string) {
+    this.productService.deleteProduct(productId)
+    .subscribe({
+      next: (response) => {
+        this.router.navigate(['products']);
+      }
+    })
+  }
 }
