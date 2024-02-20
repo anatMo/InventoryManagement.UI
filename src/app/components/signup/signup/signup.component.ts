@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit{
           this.router.navigate(['login']);
         },
         error:(err) => {
-          alert("Signed Failed")
+          alert(err.message)
         }
       })
     }else{
