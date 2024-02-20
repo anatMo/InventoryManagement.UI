@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="cil-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Sign Up</h1>
+                    <h6>Please register</h6>
+                </div>
+                <form [formGroup]="signUpForm">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input formControlName="firstName" type="text" class="form-control" id="firstName">
+                    </div>
+                    <small *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required','firstName')" 
+                    class="text-danger">*First Name is required</small>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input formControlName="lastName" type="text" class="form-control" id="lastName">
+                    </div>
+                    <small *ngIf="signUpForm.controls['lastName'].dirty && signUpForm.hasError('required','lastName')"
+                    class="text-danger">*Last Name is required</small>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input formControlName="phone" type="text" class="form-control" id="phone">
+                    </div>
+                    <small *ngIf="signUpForm.controls['phone'].dirty && signUpForm.hasError('required','phone')"
+                    class="text-danger">*Phone Number is required</small>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input formControlName="email" type="email" class="form-control" id="email">
+                    </div>
+                    <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')"
+                    class="text-danger">*Email is required</small>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input formControlName="password" type="password" class="form-control" id="password">
+                    </div>
+                    <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')"
+                    class="text-danger">*Password is required</small>
+                    <button (click)="onSignup()" type="submit" class="btn btn-primary">Sign Up</button>
+                  </form>
+                  <a style="color:#fff; margin-top: 10px;" routerLink="/login">Already registered? Click to Login</a>
+            </div>
+        </div>
+    </div>
+</div>
