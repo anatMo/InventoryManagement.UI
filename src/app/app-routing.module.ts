@@ -18,11 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'products/add',
-    component: AddProductComponent
+    component: AddProductComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'products/edit/:productId',
-    component: EditProductComponent
+    component: EditProductComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',

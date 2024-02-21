@@ -22,6 +22,7 @@ export class AuthService {
   }
 
   signOut() {
+    localStorage.removeItem('token');
     localStorage.clear();
     this.router.navigate(['login']);
   }
@@ -35,7 +36,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token')
+    return !!localStorage.getItem('token');
   }
 
 
