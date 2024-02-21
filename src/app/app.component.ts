@@ -6,8 +6,6 @@ import { Router } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
-  // templateUrl: './components/login/login.component.html',
-  // styleUrl: './components/login/login.component.css'
 })
 export class AppComponent implements OnInit{
 
